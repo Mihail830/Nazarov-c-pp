@@ -1,0 +1,49 @@
+./zoo.exe
+1
+great
+0
+hello
+================================
+7
+other
+7
+other
+================================
+7
+other
+================================
+7
+
+7
+other
+================================
+7
+
+7
+other
+================================
+1
+great
+================================
+Silence
+================================
+Animal #1
+Gav-gav
+Give me some meat
+I run on four legs and wag my tail
+================================
+Animal #2
+May
+Give me some milk
+I walk gracefully and purr
+================================
+Animal #3
+Moo
+Give me some grass
+I walk slowly on the meadow
+================================
+Animal #4
+Prrrrivet
+Give me some seeds
+I fly
+================================
