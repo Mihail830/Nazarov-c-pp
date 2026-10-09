@@ -19,7 +19,7 @@ public:
     Shape(const Shape& other);
     Shape(Shape&& other) noexcept;
     Shape& operator = (const Shape& other);
-    Shape& operator = (Shape&& oyher) noexcept;
+    Shape& operator = (Shape&& other) noexcept;
     virtual ~Shape() = default; 
 };
 
