@@ -31,8 +31,6 @@ Shape &Shape::operator=(Shape &&other) noexcept
     return *this;
 }
 
-Shape::~Shape() {}
-
 const std::string& Shape::getName() const
 {
     return name_;
@@ -125,9 +123,9 @@ bool operator^(const Shape &lhs, const Shape &rhs)
 
 std::ostream &operator<<(std::ostream &os, const Shape &shape)
 {
-    os << "Name: " << shape.getName()
-       << "Area: " << shape.area()
-       << "Perimeter: " << shape.perimeter();
+    os << "Name: " << shape.getName() << std::endl
+       << "Area: " << shape.area() << std::endl
+       << "Perimeter: " << shape.perimeter() << std::endl;
     
        return os;
 }
