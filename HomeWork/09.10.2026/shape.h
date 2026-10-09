@@ -65,3 +65,7 @@ public:
     virtual double perimeter() const override;
 
 };
+
+bool operator==(const Shape& lhs, const Shape& rhs);
+bool operator^(const Shape& lhs, const Shape& rhs);
+std::ostream& operator<<(std::ostream& os, const Shape& shape);
