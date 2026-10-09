@@ -35,4 +35,21 @@ public:
     virtual double perimeter() const override;
  };
 
+ class Squar: public Rectangular
+ {
+public:
+    Squar(double side);
+ };
+
+ class Circle: public Shape
+ {
+private:
+    double radius_;
+
+public:
+    Circle(double radius);
+    virtual double area() const override;
+    virtual double perimeter() const override;
+ };
+
  
