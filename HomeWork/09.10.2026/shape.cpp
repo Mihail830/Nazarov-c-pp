@@ -71,4 +71,23 @@ Squar::Squar(double side) : Rectangular(side, side)
     name_ = "squar";
 }
 
+Circle::Circle(double radius) : Shape("circle"), radius_(radius)
+{
+    if (radius <= 0)
+    {
+        throw std::invalid_argument("Circle radius must be > 0 ");
+    }
+}
+
+double Circle::area() const
+{
+    return pi * radius_ * radius_;
+}
+
+double Circle::perimeter() const
+{
+    return radius_ * 2.0 * pi;
+}
+
+
 
