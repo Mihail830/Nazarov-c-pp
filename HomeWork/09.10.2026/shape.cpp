@@ -47,3 +47,21 @@ double Shape::perimeter() const
 {
     return 0.0;
 }
+
+Rectangular::Rectangular(double width, double length) : Shape("rectangular"), width_(width), length_(length)
+{
+    if (width <= 0 || length <= 0)
+    {
+        throw std::invalid_argument("Rectangular sides must be > 0 ");
+    }
+}
+
+double Rectangular::area() const
+{
+    return width_ * length_;
+}
+
+double Rectangular::perimeter() const
+{
+    return (width_ + length_) * 2.0;
+}

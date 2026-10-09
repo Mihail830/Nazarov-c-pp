@@ -30,7 +30,7 @@ protected:
     double length_;
 
 public:
-    Rectangular(double wight, double length);
+    Rectangular(double width, double length);
     virtual double area() const override;
     virtual double perimeter() const override;
  };
