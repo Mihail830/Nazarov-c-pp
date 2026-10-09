@@ -52,4 +52,16 @@ public:
     virtual double perimeter() const override;
  };
 
- 
+class Triangle: public Shape
+{
+private:
+    double a_;
+    double b_;
+    double c_;
+
+public:
+    Triangle(double a, double b, double c);
+    virtual double area() const override;
+    virtual double perimeter() const override;
+
+};
