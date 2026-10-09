@@ -65,3 +65,10 @@ double Rectangular::perimeter() const
 {
     return (width_ + length_) * 2.0;
 }
+
+Squar::Squar(double side) : Rectangular(side, side)
+{
+    name_ = "squar";
+}
+
+

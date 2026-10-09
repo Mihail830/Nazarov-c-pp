@@ -6,7 +6,7 @@ const double pi = 3.1415926535;
 
 class Shape
 {
-private:
+protected:
     std::string name_;
 
 public:
