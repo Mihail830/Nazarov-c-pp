@@ -89,5 +89,26 @@ double Circle::perimeter() const
     return radius_ * 2.0 * pi;
 }
 
+Triangle::Triangle(double a, double b, double c) : Shape("triangle"), a_(a), b_(b), c_(c)
+{
+    if (a <= 0 || b <= 0 || c <= 0)
+    {
+        throw std::invalid_argument("Triangle sides must be > 0 ");
+    }
 
+    if(a + b <= c || a + c <= b || b + c <= a)
+    {
+        throw std::invalid_argument("Triangle doesn't exist ");
+    }
+}
 
+double Triangle::area() const
+{
+    double per = perimeter() / 2.0;
+    return std::sqrt(per * (per - a_) * (per - b_) * (per - c_));
+}
+
+double Triangle::perimeter() const
+{
+    return a_ + b_ + c_;
+}
