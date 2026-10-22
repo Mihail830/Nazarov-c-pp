@@ -26,8 +26,6 @@ public:
         averageScore_ = static_cast<double>(sum) / marks_.size();
     }
     
-    
-    
     const std::vector<int>& getMarks() const
     {
         return marks_;
@@ -45,33 +43,29 @@ public:
 
     friend std::ostream& operator<<(std::ostream& out, const Student& student)
     {
-        out << "Имя: " << student.name_ << std::endl;
-        out << "Группа: " << student.group_ << std::endl;
-        out << "Оценки: ";
+        out << "Name: " << student.name_ << std::endl;
+        out << "Group: " << student.group_ << std::endl;
+        out << "Marks: ";
         for (int mark : student.marks_)
         {
             out << mark << " ";
         }
-        out << "Средний балл: " << student.averageScore_ << std::endl;
+        out << "Average score: " << student.averageScore_ << std::endl;
         return out;
     }
-
-
-
-
 };
 
 int main()
 {
-    Student first("Даниил", "612");
+    Student first("Daniil", "612");
     first.addMark(5);
     first.addMark(3);
 
-    Student second("Михаил", "613");
+    Student second("Mikhail", "613");
     second.addMark(4);
     second.addMark(5);
 
-    Student third("Никита", "611");
+    Student third("Nikita", "611");
     third.addMark(3);
     third.addMark(3);
 
@@ -86,8 +80,6 @@ int main()
     {
         std::cout << student << std::endl;
     }
-    
-    
     
     return 0;
 }
