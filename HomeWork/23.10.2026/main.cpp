@@ -37,6 +37,19 @@ public:
         return averageScore_;
     }
 
+    friend std::ostream& operator<<(std::ostream& out, const Student& student)
+    {
+        out << "Имя: " << student.name_ << std::endl;
+        out << "Группа: " << student.group_ << std::endl;
+        out << "Оценки: ";
+        for (int mark : student.marks_)
+        {
+            out << mark << " ";
+        }
+        out << "Средний балл: " << student.averageScore_ << std::endl;
+        return out;
+    }
+
 
 
 
