@@ -1,0 +1,11 @@
+Name: Nikita
+Group: 611
+Marks: 3 3 Average score: 3
+
+Name: Daniil
+Group: 612
+Marks: 5 3 Average score: 4
+
+Name: Mikhail
+Group: 613
+Marks: 4 5 Average score: 4.5
