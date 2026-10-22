@@ -37,6 +37,11 @@ public:
         return averageScore_;
     }
 
+    bool operator<(const Student& other) const
+    {
+        return averageScore_ < other.averageScore_;
+    }
+
     friend std::ostream& operator<<(std::ostream& out, const Student& student)
     {
         out << "Имя: " << student.name_ << std::endl;
