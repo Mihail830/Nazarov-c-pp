@@ -13,6 +13,20 @@ private:
 public:
     Student(const std::string& name, const std::string& group) : name_(name), group_(group), averageScore_(0.0) {}
 
+    void addMark(int mark)
+    {
+        marks_.push_back(mark);
+
+        int sum = 0;
+        for (int currentMark : marks_)
+        {
+            sum += currentMark;
+        }
+        averageScore_ = static_cast<double>(sum) / marks_.size();
+    }
+    
+    
+    
     const std::vector<int>& getMarks() const
     {
         return marks_;
