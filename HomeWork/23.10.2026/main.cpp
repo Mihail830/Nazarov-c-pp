@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 class Student
 {
@@ -62,7 +63,29 @@ public:
 
 int main()
 {
-    
+    Student first("Даниил", "612");
+    first.addMark(5);
+    first.addMark(3);
+
+    Student second("Михаил", "613");
+    second.addMark(4);
+    second.addMark(5);
+
+    Student third("Никита", "611");
+    third.addMark(3);
+    third.addMark(3);
+
+    std::vector<Student> students = {first, second, third};
+
+    std::sort(students.begin(), students.end(), [](const Student& a, const Student& b)
+    {
+        return a < b;
+    });
+
+    for (const Student& student : students)
+    {
+        std::cout << student << std::endl;
+    }
     
     
     
