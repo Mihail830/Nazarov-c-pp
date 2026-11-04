@@ -1,4 +1,5 @@
 #include "vec1.h"
+#include <stdexcept>
 
 Vector1::Vector1(int size) : size_(size), data_(new double[size] {})
 {
@@ -16,10 +17,18 @@ int Vector1::size() const
 
 double Vector1::get(int n) const
 {
+    if (n < 0 || n >= size_)
+    {
+        throw std::out_of_range("Vector index out of range");
+    }
     return data_[n];
 }
 
 void Vector1::set(int n, double v)
 {
+    if (n < 0 || n >= size_)
+    {
+        throw std::out_of_range("Vector index out of range");
+    }
     data_[n] = v;
 }
