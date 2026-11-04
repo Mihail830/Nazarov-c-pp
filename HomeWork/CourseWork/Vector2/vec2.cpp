@@ -68,6 +68,9 @@ Vector2 &Vector2::operator=(Vector2 &&other) noexcept
     delete[] data_;
     data_ = other.data_;
     size_ = other.size_;
+
+    other.data_ = nullptr;
+    other.size_ = 0;
     return *this;
     
 }
