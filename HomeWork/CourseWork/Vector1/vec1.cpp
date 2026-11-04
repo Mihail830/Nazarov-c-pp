@@ -1,8 +1,16 @@
 #include "vec1.h"
 #include <stdexcept>
 
-Vector1::Vector1(int size) : size_(size), data_(new double[size] {})
+Vector1::Vector1(int size) : size_(size), data_(nullptr)
 {
+    if (size < 0)
+    {
+        throw std::invalid_argument("Vector size < 0");
+    }
+    else
+    {
+        data_ = new double[size] {};
+    }
 }
 
 Vector1::~Vector1()
