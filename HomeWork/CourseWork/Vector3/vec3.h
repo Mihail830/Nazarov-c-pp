@@ -35,7 +35,7 @@ public:
     const T& operator[](int n) const;
 
     // Изменение размера
-    void reserve(int new_allloc);
+    void reserve(int new_alloc);
     void resize(int new_size, T val = T{});
     void push_back(const T& val);
 };
@@ -84,7 +84,7 @@ inline Vector3<T, A>::Vector3(const Vector3 &other) : size_(other.size_), capaci
 {
     for (int i = 0; i < size_; ++i)
     {
-        alloc.construct(data_ + i; other.data_[i]);
+        alloc.construct(data_ + i, other.data_[i]);
     }
 }
 
@@ -110,7 +110,7 @@ inline Vector3<T, A> &Vector3<T, A>::operator=(const Vector3 &other)
         return *this;
     }
 
-    Vector19 tmp{other};
+    Vector3 tmp{other};
     std::swap(size_, tmp.size_);
     std::swap(capacity_, tmp.capacity_);
     std::swap(data_, tmp.data_);
@@ -162,7 +162,7 @@ inline const T &Vector3<T, A>::operator[](int n) const
 }
 
 template <typename T, typename A>
-inline void Vector3<T, A>::reserve(int new_allloc)
+inline void Vector3<T, A>::reserve(int new_alloc)
 {
     if (new_alloc <= capacity_)
     {
