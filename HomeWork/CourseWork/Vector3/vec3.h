@@ -38,6 +38,7 @@ public:
     void reserve(int new_alloc);
     void resize(int new_size, T val = T{});
     void push_back(const T& val);
+    void pop_back();
 };
 
 template <typename T, typename A>
@@ -80,7 +81,7 @@ inline Vector3<T, A>::Vector3(std::initializer_list<T> lst) : size_(static_cast<
 }
 
 template <typename T, typename A>
-inline Vector3<T, A>::Vector3(const Vector3 &other) : size_(other.size_), capacity_(other.size_), data_(other.size_ > 0 ? alloc.allocate(other.size_) : nullptr)
+inline Vector3<T, A>::Vector3(const Vector3 &other) : alloc(other.alloc), size_(other.size_), capacity_(other.size_), data_(other.size_ > 0 ? alloc.allocate(other.size_) : nullptr)
 {
     for (int i = 0; i < size_; ++i)
     {
@@ -89,7 +90,7 @@ inline Vector3<T, A>::Vector3(const Vector3 &other) : size_(other.size_), capaci
 }
 
 template <typename T, typename A>
-inline Vector3<T, A>::Vector3(Vector3 &&other) : size_(other.size_), capacity_(other.capacity_), data_(other.data_)
+inline Vector3<T, A>::Vector3(Vector3 &&other) : alloc(std::move(other.alloc)), size_(other.size_), capacity_(other.capacity_), data_(other.data_)
 {
     other.size_ = 0;
     other.capacity_ = 0;
@@ -114,6 +115,7 @@ inline Vector3<T, A> &Vector3<T, A>::operator=(const Vector3 &other)
     std::swap(size_, tmp.size_);
     std::swap(capacity_, tmp.capacity_);
     std::swap(data_, tmp.data_);
+    std::swap(alloc, tmp.alloc);
     return *this;
 }
 
@@ -126,7 +128,8 @@ inline Vector3<T, A> &Vector3<T, A>::operator=(Vector3 &&other)
     }
 
     destroy_all();
-
+   
+    alloc = std::move(other.alloc);
     size_ = other.size_;
     capacity_ = other.capacity_;
     data_ = other.data_;
@@ -232,4 +235,15 @@ inline void Vector3<T, A>::push_back(const T &val)
 
     alloc.construct(data_ + size_, val);
     ++size_;
+}
+
+template <typename T, typename A>
+inline void Vector3<T, A>::pop_back()
+{
+    if (size_ == 0)
+    {
+        throw std::out_of_range("pop_back on empty vector");
+    }
+    --size_;
+    alloc.destroy(data_ + size_);
 }

@@ -104,12 +104,14 @@ int main()
     std::cout << std::endl << "String vector 2 = ";
     print(vs);
 
-     
-     
-
-
-
-
+     // pop_back
+     std::cout << std::endl << ".............." << std::endl;
+     Vector3<int> test {1, 2, 3};
+     std::cout << "Test vector = ";
+     print(test);
+     test.pop_back();
+     std::cout << std::endl << "Vector (pop_back) = ";
+     print(test);
 
     return 0;
 }
