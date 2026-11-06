@@ -105,13 +105,27 @@ int main()
     print(vs);
 
      // pop_back
-     std::cout << std::endl << ".............." << std::endl;
-     Vector3<int> test {1, 2, 3};
-     std::cout << "Test vector = ";
-     print(test);
-     test.pop_back();
-     std::cout << std::endl << "Vector (pop_back) = ";
-     print(test);
+    std::cout << std::endl << ".............." << std::endl;
+    Vector3<int> test {1, 2, 3};
+    std::cout << "Test vector = ";
+    print(test);
+    test.pop_back();
+    std::cout << std::endl << "Vector (pop_back) = ";
+    print(test);
+
+    // sort
+    std::cout << std::endl << ".............." << std::endl;
+    Vector3<std::string> vec_string {"bah", "cdsf", "ahjd", "dbkdk"};
+    std::cout << "Vec_string = ";
+    print(vec_string);
+    vec_string.sort();
+    for (int i = 0; i < vec_string.size() / 2; ++i)
+    {
+        std::swap(vec_string[i], vec_string[vec_string.size() - 1 - i]);
+    }
+    std::cout << std::endl << "New vector = ";
+    print(vec_string);
+
 
     return 0;
 }

@@ -39,6 +39,7 @@ public:
     void resize(int new_size, T val = T{});
     void push_back(const T& val);
     void pop_back();
+    void sort();
 };
 
 template <typename T, typename A>
@@ -246,4 +247,10 @@ inline void Vector3<T, A>::pop_back()
     }
     --size_;
     alloc.destroy(data_ + size_);
+}
+
+template <typename T, typename A>
+inline void Vector3<T, A>::sort()
+{
+    std::sort(data_, data_ + size_);
 }
